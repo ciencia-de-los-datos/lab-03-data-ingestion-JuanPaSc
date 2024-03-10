@@ -47,7 +47,6 @@ def ingest_data():
             # Reemplazamos las comas por puntos en los porcentajes
             palabras = " ".join(palabras[1:])
             diccionario["palabras"] += palabras
-            diccionario["palabras"] = diccionario["palabras"].replace(".", "")  # Cambio
 
         elif re.match("^ + [a-z]", fila):
             # expresión regular que comienza con uno o más espacios seguidos de una letra minúscula.
@@ -63,6 +62,7 @@ def ingest_data():
             # se utiliza para identificar líneas en blanco o líneas que contienen
             # sólo espacios
 
+            diccionario["palabras"] = diccionario["palabras"].replace(".", "")  # Cambio
             clusters.append(diccionario.values())
 
             diccionario = {
